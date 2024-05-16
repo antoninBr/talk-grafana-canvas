@@ -1,0 +1,7 @@
+@use 'variables' as var;
+
+@mixin text-title($color, $large: true) {
+  color: $color;
+  text-shadow: none;
+  font-family: var.$font-title;
+}

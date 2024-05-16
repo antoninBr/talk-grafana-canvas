@@ -1,0 +1,50 @@
+@use "../bases/variables" as var;
+
+.reveal .controls {
+  display: none!important;
+
+  @media (width >= 768px) and  (height >= 600px ){
+    display: block!important;
+  }
+}
+
+
+.reveal .controls,
+.reveal.has-horizontal-slides .controls,
+.reveal.has-vertical-slides .controls {
+  right: 4.25rem;
+  bottom: 4.25rem;
+  width: 7.25rem;
+  height: 7.25rem;
+  border-radius: 100%;
+  background-color: var.$color-primary-dark;
+
+  .navigate-right {
+    right: 0.75em;
+    bottom: 4em;
+    color: var.$color-tertiary;
+  }
+
+  .navigate-down {
+    right: 4em;
+    bottom: 1em;
+    padding-bottom: inherit;
+    color: var.$color-quaternary;
+  }
+
+  .navigate-left {
+    bottom: 4em;
+    left: .75em;
+    color: var.$color-secondary;
+  }
+
+  > .navigate-up {
+    top: .25em;
+    right: 3.9em;
+    color: var.$color-light;
+  }
+
+  &.controls[data-controls-back-arrows="faded"] .enabled {
+    opacity: 1;
+  }
+}

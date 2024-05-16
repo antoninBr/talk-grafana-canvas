@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		
+		<meta name="description" content="Grafana Canvas, The Joy of Painting">
+		<meta name="author" content="Antonin Brugnot">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Helmfile</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img style="max-width: 50%;" src="img/title.jpg"/>
+					<h3>Grafana Canvas, The Joy of Painting</h3>
+					<p>
+						<small>Antonin Brugnot</small>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>Grafana</h2>
+						<ul>
+							<li>Solution de visualisation de données</li>
+							<li>Dashboards</li>
+							<li>Multi-sources (Prometheus, InfluxDB, ...)</li>
+							<li>Logiciel Libre</li>
+						</ul>
+					</section>
+					<section>
+						<img style="max-width: 50%;" src="img/logo_loki.png"/>
+						<img style="max-width: 50%;" src="img/mimir-logo.png"/>
+					</section>
+					<section>
+						<p><a href="https://play.grafana.org/">play.grafana.org</a></p>
+					</section>
+			    </section>
+				<section>
+					<section>
+						<h2>Canvas</h2>
+					</section>
+					<section>
+						<ul>
+							<li>GA depuis la v10.0 (06/2023)</li>
+							<li><a href="https://github.com/algenty/grafana-flowcharting">Flowcharting plugin</a></li>
+							<li><a href="https://algenty.github.io/flowcharting-repository">Flowcharting repository</a></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h1>Demo time</h1>
+				</section>
+				<section>
+					<section>
+						<h2 class="r-fit-text">Merci !</h2>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">bio.yaml</h2>
+						<pre data-id="code-animation"><code class="hljs yaml" data-trim data-line-numbers><script type="text/template">
+							first_name: "Antonin"
+							family_name: "Brugnot"
+							company: "Onepoint"
+							twitter: null
+							personal_info:
+							  email: "a.brugnot@groupeonepoint.com"
+							  birth: "21st July, 1987"
+							  photo: "tronche_joviale.png"
+							  location: "Nantes"
+							summary: "Lead Tech, impl DEVOPS, FullStack Java, Cloud"
+						</script></code></pre>
+					</section>
+					<section>
+						<img  style="max-width: 50%;" src="img/qrcode.svg"/>
+						<p>repo github (démo + slides)</p>
+					</section>											
+				</section>	            
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				slideNumber: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+	</body>
+</html>

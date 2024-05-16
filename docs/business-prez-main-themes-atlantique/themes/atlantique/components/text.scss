@@ -1,0 +1,99 @@
+@use "../bases/variables" as var;
+@use "../bases/mixins" as mixin;
+
+.reveal h1 {
+  @include mixin.text-title(var.$color-secondary);
+  font-size: 10vw;
+  font-weight: 800;
+  text-transform: none;
+
+  @media (width >= 768px) {
+    font-size: 8vw;
+  }
+
+  @media (width >= 1024px) {
+    font-size: 5.7vw;
+  }
+}
+
+.reveal h2 {
+  @include mixin.text-title(var.$color-secondary);
+  font-size: 8vw;
+  font-weight: 800;
+  text-transform: none;
+  text-align: left;
+
+  @media (width >= 400px) {
+    font-size: 5vw;
+  }
+
+  @media (width >= 1024px) {
+    font-size: 3rem;
+  }
+  @media (width >= 1600px) {
+    font-size: 4rem;
+  }
+}
+
+.reveal section.c-slide--lights.c-slide--title h2 {
+  text-align: center;
+
+  @media (width >= 1024px) {
+    font-size: 8rem;
+  }
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: 600;
+}
+
+.c-text--sub-title {
+  color: var.$color-secondary;
+  text-decoration: underline;
+}
+
+
+.c-text--credit {
+  margin: 2rem 3rem 0;
+  padding-top: 15rem;
+  font-family: var.$font-text;
+  font-size: 2rem;
+  color: var.$color-light;
+  text-shadow: -.25rem 0 .0625rem var.$color-dark;
+  word-break: break-word;
+}
+
+.reveal a {
+  margin: .5rem;
+  font-weight: 700;
+  color: var.$color-secondary;
+  text-decoration: underline;
+  text-decoration-color: var.$color-secondary;
+
+  &:hover {
+    color: var.$color-light;
+  }
+}
+
+.reveal p,
+.reveal blockquote,
+.reveal a {
+  font-size: 1rem;
+  text-align: left;
+
+  @media (width >= 768px) {
+    font-size: 1rem;
+  }
+  @media (width >= 1024px) {
+    font-size: 1.5rem;
+  }
+  @media (width >= 1440px) {
+    font-size: 2rem;
+  }
+}
+
+.reveal section.c-slide--lights p,
+.reveal section.c-slide--lights h2 {
+  text-align: center;
+}

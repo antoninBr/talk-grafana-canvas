@@ -1,0 +1,107 @@
+@use "../bases/variables" as var;
+@use "../bases/mixins" as mixin;
+
+@mixin center-content {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+@mixin center-column-content {
+  @include center-content;
+
+  flex-direction: column;
+}
+
+
+section.title.present {
+  &.c-slide--lights-elephant-crane {
+    @include center-content;
+
+    @media (width >= 1024px) {
+      padding-left: 40%;
+    }
+
+    @media (width > 1200px) {
+      padding-left: 0;
+      padding-top: 8rem;
+    }
+  }
+  &.c-slide--lights,
+  &.c-slide--lights-left{
+    @include center-content;
+  }
+  &.c-slide--elephant,
+  &.c-slide--elephant-o{
+    @include center-content;
+
+    @media (width >= 1024px) {
+      padding-right: 40%;
+    }
+  }
+  &.c-slide--crane-bottom,
+  &.c-slide--crane-left {
+    @include center-content;
+
+    @media (width >= 1024px) {
+      padding-left: 40%;
+    }
+  }
+}
+
+section.stack > section.present,
+section.present:not(.title) {
+  &.c-slide--lights-elephant-crane.je-jure-solennellement-que-mes-intention-sont-mauvaises {
+    @include center-content;
+
+    @media (width >= 1024px) {
+      padding-left: 40%;
+    }
+
+    @media (width > 1200px) {
+      padding-left: 0;
+      padding-top: 8rem;
+    }
+  }
+  &.c-slide--lights-elephant-crane:not(.je-jure-solennellement-que-mes-intention-sont-mauvaises) {
+    background-color: red;
+    width: 100%;
+    height: 100%;
+
+    &::before {
+      width: 100%;
+      height: 100%;
+      content: "Merci de ne pas utiliser cette configuration autrement que pour la slide titre";
+      color: black;
+    }
+    * {
+      display: none;
+    }
+  }
+  &.c-slide--lights,
+  &.c-slide--lights-left{
+    @include center-column-content;
+  }
+  &.c-slide--elephant,
+  &.c-slide--elephant-o{
+    @include center-column-content;
+    align-items: flex-start;
+
+    @media (width >= 1024px) {
+      padding-right: 40%;
+    }
+  }
+  &.c-slide--crane-bottom {
+    @include center-column-content;
+
+    @media (width >= 1024px) {
+      padding-left: 50%;
+    }
+  }
+  &.c-slide--crane-left {
+    @include center-column-content;
+
+    @media (width >= 1024px) {
+      padding-left: 40%;
+    }
+  }
+}

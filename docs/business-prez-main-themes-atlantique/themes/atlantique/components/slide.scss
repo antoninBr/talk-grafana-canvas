@@ -1,0 +1,64 @@
+@use "../bases/variables" as var;
+
+// Surcharge du thème reveal.js
+.reveal .slides {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 auto;
+  zoom: inherit !important;
+}
+.reveal .slides section > section .slide-content p {
+  margin: 0;
+}
+
+.reveal .slides > section > section.present,
+.reveal .slides > section.c-slide--last {
+ height: 100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 2.5rem 1rem;
+
+  @media (width >= 768px) {
+    padding: 0 5rem 1rem;
+  }
+
+  @media (width >= 1440px) {
+    padding: 0 10rem 1rem;
+  }
+}
+
+.reveal .slides > section .slide-content .c-slide__info {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 3rem;
+  width: 12rem;
+}
+
+.reveal .slides > section .slide-content .c-slide__info--large {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 3rem;
+  width: 32rem;
+}
+
+.reveal .slides > section.c-slide--last .slide-content {
+  display: grid;
+  grid-template: auto auto auto / 1fr 1fr;
+  grid-template-areas:
+      "nom nom"
+      "nom1 nom2"
+      "qrcode1 qrcode2";
+
+  & >:first-child {
+    grid-area: nom;
+  }
+
+  .imageblock {
+    width: fit-content;
+    justify-self: center;
+    height: 70%;
+  }
+}

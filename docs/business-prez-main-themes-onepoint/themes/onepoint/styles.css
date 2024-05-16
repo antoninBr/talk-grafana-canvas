@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/Poppins.woff2");
+}
+
+.reveal {
+    background-color: #1E2124;
+    background-image: url("images/nantes-white.png"), url("images/onepoint-white.png"), url("images/circles.svg");
+    background-position: bottom, bottom left, top right;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: auto, 200px, 60%;
+    font-family: "Poppins";
+}
+
+.reveal .slides > section {
+
+    height: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.75rem;
+    padding: 2.5rem 1rem;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5 {
+    font-family: "Poppins";
+    text-transform: none;
+}
+
+.reveal .controls .controls-arrow {
+    color: #00A2DF;
+}
+
+.reveal .progress {
+    color: #00A2DF;
+}

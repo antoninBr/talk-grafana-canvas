@@ -1,0 +1,25 @@
+bases:
+- base.yaml
+---
+
+repositories:
+ - name: prometheus-community
+   url: https://prometheus-community.github.io/helm-charts
+ - name: grafana
+   url: https://grafana.github.io/helm-charts
+
+releases:
+- name: prometheus
+  namespace: monitoring
+  chart: prometheus-community/prometheus
+  version: "25.20.1"
+  values:
+  - "./prometheus/values.yaml"
+- name: grafana
+  namespace: monitoring
+  chart: grafana/grafana
+  version: "7.3.9"
+  values:
+  - "./grafana/values.yaml"
+  secrets:
+  - "./grafana/secrets.yaml"

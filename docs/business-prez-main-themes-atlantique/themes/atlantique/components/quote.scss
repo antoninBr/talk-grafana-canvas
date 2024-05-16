@@ -1,0 +1,82 @@
+@use "../bases/variables" as var;
+
+@mixin quote-img($type) {
+  width: 2rem;
+  height: 2rem;
+  content: '';
+  background-image: url('images/svg/#{$type}-quotes.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media (width >= 1024px) {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+.reveal .c-quote {
+  display: flex;
+  flex-direction: column;
+  font-family: var.$font-text;
+  font-size: 3rem;
+  gap: 1.5rem;
+
+  &::before {
+    @include quote-img('before');
+    align-self: flex-start;
+    margin-bottom: -1rem;
+  }
+
+  &::after {
+    @include quote-img('after');
+    align-self: flex-end;
+  }
+}
+
+.reveal .c-quote blockquote, {
+  width: inherit;
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  font-style: normal;
+  text-align: left;
+
+  @media (width >= 768px) {
+    font-size: 2rem;
+  }
+}
+
+.c-quote .attribution {
+  align-self: flex-end;
+  font-size: 1rem;
+  font-style: italic;
+
+  @media (width >= 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.reveal .c-quote--huge {
+  @media (width >= 768px) {
+    margin: 0 5rem;
+  }
+
+  blockquote {
+    font-size: 2rem;
+    font-weight: 800;
+    @media (width >= 768px) {
+      font-size: 2rem;
+    }
+    @media (width >= 1440px) {
+      font-size: 4rem;
+    }
+  }
+
+  .attribution {
+    font-size: 1rem;
+    @media (width >= 768px) {
+      font-size: 1.5rem;
+    }
+  }
+}

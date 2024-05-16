@@ -1,0 +1,15 @@
+@use "../bases/variables" as var;
+
+.reveal .c-category p{
+  position: absolute;
+  display: none;
+  font-weight: 700;
+  color: var.$color-tertiary;
+
+  @media (width >= 1024px) {
+    top: 4rem;
+    left: 10rem;
+    display: block;
+    font-size: 1rem!important;
+  }
+}

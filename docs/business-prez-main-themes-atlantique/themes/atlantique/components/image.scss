@@ -1,0 +1,30 @@
+@use "../bases/variables" as var;
+
+.reveal section img {
+  margin: 0;
+  border: none;
+  background: inherit;
+  box-shadow: none;
+}
+
+.c-image--logo-1 {
+  position: absolute;
+  bottom: 3rem;
+  left: calc(50% - 12rem);
+  width: 10rem;
+}
+
+.c-image--logo-onepoint {
+  position: absolute;
+  left: calc(50% + 2rem);
+  bottom: 2.5rem;
+  width: 10rem;
+}
+
+.c-image--title {
+  width: 200rem;
+}
+
+.c-image--with-background img {
+  background-color: var.$color-light !important;
+}

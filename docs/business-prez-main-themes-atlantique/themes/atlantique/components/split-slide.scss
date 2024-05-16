@@ -1,0 +1,136 @@
+@use "../bases/variables" as var;
+@use "../bases/mixins" as mixin;
+
+.reveal .slides > section > section.c-split-slide {
+  top: 0 !important;
+  height: 100%;
+  margin: 0;
+  justify-content: flex-start;
+  padding: 2rem;
+
+  @media (width >= 600px) {
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+.reveal .c-split-slide .c-split-slide__title p {
+  @include mixin.text-title(var.$color-secondary);
+  margin: 3rem 0 1.5rem .5rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-align: start;
+}
+
+.reveal .c-split-slide .c-split-slide__image {
+  position: absolute;
+
+  p, .image, img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  img {
+    max-width: inherit;
+    max-height: inherit;
+    border: none;
+    background: inherit;
+    box-shadow: inherit;
+  }
+}
+
+.reveal .c-split-slide .slide-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 50%;
+
+  @media (width >= 600px) {
+    height: 100%;
+    padding: 0 2.5rem;
+  }
+
+  @media (width >= 768px) {
+    padding: 0 5rem;
+  }
+
+  @media (width >= 1440px) {
+    padding: 0 10rem;
+  }
+
+  p {
+    margin: 0;
+    text-align: start;
+  }
+}
+
+.reveal .slides > section > section.c-split-slide--slant {
+  @media (width >= 600px) {
+    align-items: flex-start;
+  }
+}
+
+.reveal .c-split-slide--slant .slide-content {
+  max-height: 50%;
+
+  @media (width >= 600px) {
+    max-width: 55%;
+    max-height: 100%;
+  }
+}
+
+.reveal .c-split-slide--slant .c-split-slide__image {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+
+  @media (width >= 600px) {
+    top: 0;
+    height: 100%;
+    clip-path: polygon(65% 0, 100% 0, 100% 100%, 55% 100%);
+  }
+}
+
+.reveal .slides > section > section.c-split-slide--multi {
+  @media (width >= 600px) {
+    align-items: flex-end;
+  }
+}
+
+.reveal .c-split-slide--multi .slide-content {
+  max-height: 50%
+;
+  @media (width >= 600px) {
+    max-width: 50%;
+    max-height: 100%;
+  }
+}
+
+.reveal .c-split-slide--multi .slide-content > .c-split-slide__image {
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  height: 50%;
+
+  @media (width >= 600px) {
+    bottom: inherit;
+    top: 0;
+  }
+
+  & ~ .c-split-slide__image {
+    left: inherit;
+    right: 0;
+
+    @media (width >= 600px) {
+      bottom: 0;
+      top: inherit;
+      right: inherit;
+      left: 0;
+    }
+  }
+}
+

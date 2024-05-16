@@ -1,0 +1,59 @@
+@use "bases/variables" as var;
+@use "bases/mixins" as mixin;
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/poppins/Poppins-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/poppins/Poppins-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/poppins/Poppins-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/poppins/Poppins-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/poppins/Poppins-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@import "../atlantique/components/index";
+
+
+.reveal {
+  background-color: var.$background;
+  font-family: var.$font-text;
+  color: var.$color-light;
+}
+
+.u-visually-hidden {
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+
+  // Fix for positioned table caption that could become anonymous cells
+  &:not(caption) {
+    position: absolute !important;
+  }
+}
+
