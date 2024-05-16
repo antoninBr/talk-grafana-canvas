@@ -133,13 +133,13 @@ dnsConfig: {}
   #   - name: edns0
 
 securityContext:
-  runAsNonRoot: true
-  runAsUser: 472
-  runAsGroup: 472
-  fsGroup: 472
+  runAsNonRoot: false
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
 
 containerSecurityContext:
-  allowPrivilegeEscalation: false
+  allowPrivilegeEscalation: true
   capabilities:
     drop:
     - ALL
@@ -355,7 +355,7 @@ extraContainerVolumes: []
 ##
 persistence:
   type: pvc
-  enabled: false
+  enabled: true
   # storageClassName: default
   accessModes:
     - ReadWriteOnce
