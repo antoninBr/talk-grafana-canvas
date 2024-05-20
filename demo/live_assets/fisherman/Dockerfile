@@ -2,14 +2,14 @@
 FROM python:3.9-slim
 
 # Installation des dépendances
-RUN pip install prometheus_client
+RUN pip install prometheus_client flask
 
 # Copie du code source dans le conteneur
 COPY . /app
 WORKDIR /app
 
-# Exposition du port 8000 utilisé par l'application
-EXPOSE 8000
+# Exposition des ports utilisés par l'application
+EXPOSE 8000 5000
 
 # Commande pour exécuter l'application
 CMD ["python", "fisherman_app.py"]

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fisherman-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fisherman-app
+  template:
+    metadata:
+      labels:
+        app: fisherman-app
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/path: '/metrics'
+        prometheus.io/port: '8000'         
+    spec:
+      containers:
+      - name: fisherman-app
+        image: fisherman-app-2:latest
+        ports:
+        - containerPort: 8000 # Port pour les métriques Prometheus
+        - containerPort: 5000 # Port pour l'API Flask
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fisherman-app-api
+spec:
+  selector:
+    app: fisherman-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000

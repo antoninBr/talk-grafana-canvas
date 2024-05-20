@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cabin-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cabin-app
+  template:
+    metadata:
+      labels:
+        app: cabin-app
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/path: '/metrics'
+        prometheus.io/port: '8000'  
+    spec:
+      containers:
+      - name: cabin-app
+        image: cabin-app:latest
+        ports:
+        - containerPort: 8000 # Port pour les métriques Prometheus
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
