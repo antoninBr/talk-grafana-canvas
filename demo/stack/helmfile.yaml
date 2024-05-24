@@ -21,5 +21,3 @@ releases:
   version: "7.3.9"
   values:
   - "./grafana/values.yaml"
-  secrets:
-  - "./grafana/secrets.yaml"

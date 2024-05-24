@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lake-app
+  namespace: drawing  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lake-app
+  template:
+    metadata:
+      labels:
+        app: lake-app
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/path: '/metrics'
+        prometheus.io/port: '8000'         
+    spec:
+      containers:
+      - name: lake-app
+        image: lake-app:v2
+        ports:
+        - containerPort: 8000 # Port pour les métriques Prometheus
+        - containerPort: 5000 # Port pour l'API Flask
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lake-app-api
+  namespace: drawing  
+spec:
+  selector:
+    app: lake-app
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000

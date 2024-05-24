@@ -2,7 +2,7 @@
 FROM python:3.9-slim
 
 # Installation des dépendances
-RUN pip install prometheus_client flask
+RUN pip install prometheus_client flask requests flask-cors
 
 # Copie du code source dans le conteneur
 COPY . /app

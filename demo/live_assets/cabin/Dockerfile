@@ -2,7 +2,7 @@
 FROM python:3.9-slim
 
 # Installation des dépendances
-RUN pip install prometheus_client
+RUN pip install prometheus_client requests
 
 # Copie du code source dans le conteneur
 COPY . /app

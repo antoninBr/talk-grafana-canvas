@@ -100,7 +100,7 @@ image:
   # -- Docker image repository
   repository: grafana/grafana
   # Overrides the Grafana image tag whose default is the chart appVersion
-  tag: ""
+  tag: "11.0.0"
   sha: ""
   pullPolicy: IfNotPresent
 
@@ -419,7 +419,7 @@ initChownData:
 
 # Administrator credentials when not using an existing secret (see below)
 adminUser: admin
-# adminPassword: gérer en secret
+adminPassword: mdp
 
 # Use an existing secret for the admin user.
 admin:
@@ -2767,6 +2767,9 @@ grafana.ini:
     url: https://grafana.net
   server:
     domain: "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ .Values.ingress.hosts | first }}{{ else }}''{{ end }}"
+    root_url: http://localhost/
+  live:
+    max_connections: 0
 ## grafana Authentication can be enabled with the following values on grafana.ini
  # server:
       # The full public facing url you use in browser, used for redirects and emails

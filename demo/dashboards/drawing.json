@@ -1,0 +1,491 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": false,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "links": [],
+    "panels": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "transparent",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "infinitePan": false,
+          "inlineEditing": true,
+          "panZoom": false,
+          "root": {
+            "background": {
+              "color": {
+                "fixed": "transparent"
+              },
+              "image": {
+                "fixed": "img/bg",
+                "mode": "fixed"
+              }
+            },
+            "border": {
+              "color": {
+                "fixed": "dark-green"
+              }
+            },
+            "constraint": {
+              "horizontal": "left",
+              "vertical": "top"
+            },
+            "elements": [
+              {
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "radius": 10,
+                  "width": 2
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "text": {
+                    "fixed": "fisherman"
+                  },
+                  "valign": "top"
+                },
+                "connections": [
+                  {
+                    "color": {
+                      "fixed": "rgb(204, 204, 220)"
+                    },
+                    "path": "straight",
+                    "size": {
+                      "fixed": 2,
+                      "max": 10,
+                      "min": 1
+                    },
+                    "source": {
+                      "x": 1.0000003017274672,
+                      "y": -3.721655868902439e-7
+                    },
+                    "sourceOriginal": {
+                      "x": 299.0000305175781,
+                      "y": 91.00001525878906
+                    },
+                    "target": {
+                      "x": -0.5361306784036276,
+                      "y": -0.05847944293105811
+                    },
+                    "targetName": "Element 6",
+                    "targetOriginal": {
+                      "x": 415.3333320617676,
+                      "y": 95.33332824707031
+                    }
+                  }
+                ],
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "Element 7",
+                "placement": {
+                  "height": 82,
+                  "left": 122,
+                  "top": 50,
+                  "width": 177
+                },
+                "type": "rectangle"
+              },
+              {
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "radius": 10,
+                  "width": 2
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "text": {
+                    "fixed": "cabin"
+                  },
+                  "valign": "top"
+                },
+                "connections": [
+                  {
+                    "color": {
+                      "fixed": "rgb(204, 204, 220)"
+                    },
+                    "path": "straight",
+                    "size": {
+                      "fixed": 2,
+                      "max": 10,
+                      "min": 1
+                    },
+                    "source": {
+                      "x": -1.0000002155196195,
+                      "y": 0
+                    },
+                    "sourceOriginal": {
+                      "x": 643,
+                      "y": 51
+                    },
+                    "target": {
+                      "x": 0.6806525383795892,
+                      "y": 0.3450293289987664
+                    },
+                    "targetName": "Element 6",
+                    "targetOriginal": {
+                      "x": 589.3333320617676,
+                      "y": 72.33332824707031
+                    }
+                  }
+                ],
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "Element 8",
+                "placement": {
+                  "height": 82,
+                  "left": 643,
+                  "top": 10,
+                  "width": 177
+                },
+                "type": "rectangle"
+              },
+              {
+                "background": {
+                  "color": {
+                    "fixed": "blue"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "text": {
+                    "fixed": "lake"
+                  },
+                  "valign": "middle"
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "Element 6",
+                "placement": {
+                  "height": 114,
+                  "left": 349,
+                  "top": 35,
+                  "width": 286
+                },
+                "type": "cloud"
+              },
+              {
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "align": "center",
+                  "api": {
+                    "contentType": "application/json",
+                    "data": "{}",
+                    "endpoint": "http://fisherman.localhost:80/reset",
+                    "headerParams": [],
+                    "method": "POST",
+                    "queryParams": []
+                  },
+                  "color": {
+                    "fixed": "#F0F4FD"
+                  },
+                  "size": 14,
+                  "style": {
+                    "variant": "primary"
+                  },
+                  "text": {
+                    "fixed": "Relâcher les poissons",
+                    "mode": "fixed"
+                  }
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "relacher_poissons",
+                "placement": {
+                  "height": 44,
+                  "left": 1000,
+                  "top": 10,
+                  "width": 195
+                },
+                "type": "button"
+              },
+              {
+                "background": {
+                  "color": {
+                    "field": "fish_caught_total",
+                    "fixed": "#D9D9D9"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "size": 20,
+                  "text": {
+                    "field": "fish_caught_total",
+                    "fixed": "",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "Element 3",
+                "placement": {
+                  "height": 50,
+                  "left": 179,
+                  "top": 73,
+                  "width": 63
+                },
+                "type": "metric-value"
+              },
+              {
+                "background": {
+                  "color": {
+                    "field": "lake_temperature_celsius",
+                    "fixed": "#D9D9D9"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "size": 20,
+                  "text": {
+                    "field": "lake_temperature_celsius",
+                    "fixed": "",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "Element 4",
+                "placement": {
+                  "height": 50,
+                  "left": 518,
+                  "top": 92,
+                  "width": 63
+                },
+                "type": "metric-value"
+              },
+              {
+                "background": {
+                  "color": {
+                    "field": "fireplace_status",
+                    "fixed": "#D9D9D9"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "size": 20,
+                  "text": {
+                    "field": "fireplace_status",
+                    "fixed": "",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "Element 5",
+                "placement": {
+                  "height": 50,
+                  "left": 700,
+                  "top": 35,
+                  "width": 63
+                },
+                "type": "metric-value"
+              }
+            ],
+            "name": "Element 1716210376578",
+            "placement": {
+              "height": 100,
+              "left": 0,
+              "rotation": 0,
+              "top": 0,
+              "width": 100
+            },
+            "type": "frame"
+          },
+          "showAdvancedTypes": true
+        },
+        "pluginVersion": "11.0.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "fish_caught_total",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "fish-caught",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "lake_temperature_celsius",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "lake-temperature",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "fireplace_status",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "cabin-fireplace-status",
+            "useBackend": false
+          }
+        ],
+        "title": "Drawing Applications",
+        "transparent": true,
+        "type": "canvas"
+      }
+    ],
+    "refresh": "auto",
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timeRangeUpdatedDuringEditOrView": true,
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "Drawing",
+    "uid": "adma37vjt0h6od",
+    "version": 1,
+    "weekStart": ""
+  }
