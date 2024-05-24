@@ -1,0 +1,192 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 4,
+    "links": [],
+    "panels": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 14,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "# Prerequisites\n\n* Kubectl\n* in directory ./demo/img/\n\n# Get pod id env variable\n\n`export grafana_pod_id=( kubectl get pod -n monitoring | grep 'grafana' | awk 'END {print $1}' | xargs echo)`\n\n\n# Copy custom background\n\n**Only png admitted**\n\n`kubectl cp -n monitoring openart-bob-ross-lake-cabin.png $grafana_pod_id:/usr/share/grafana/public/img/bg/openart-bob-ross-lake-cabin.png`\n\n",
+          "mode": "markdown"
+        },
+        "pluginVersion": "11.0.0",
+        "title": "Custom Background",
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 10,
+          "x": 14,
+          "y": 0
+        },
+        "id": 3,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "# Prerequisites\n\n* Grafana source code\n* SVG Layering skills\n* React dev skills\n* A loooot of time\n\n# It's hard\n\nFollow this blog post: [blog post](https://volkovlabs.io/blog/pizzeria-canvas-20230723/)",
+          "mode": "markdown"
+        },
+        "pluginVersion": "11.0.0",
+        "title": "Custom Elements",
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 17,
+          "x": 0,
+          "y": 10
+        },
+        "id": 2,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "# Prerequisites\n\n* Kubectl\n* in directory ./demo/img/\n\n# Get pod id env variable\n\n`export grafana_pod_id=( kubectl get pod -n monitoring | grep 'grafana' | awk 'END {print $1}' | xargs echo)`\n\n\n# Copy custom icons\n\n`kubectl cp -n monitoring ./kube/api.svg $grafana_pod_id:/usr/share/grafana/public/img/icons/unicons/`",
+          "mode": "markdown"
+        },
+        "pluginVersion": "11.0.0",
+        "title": "Custom Icons",
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 7,
+          "x": 17,
+          "y": 10
+        },
+        "id": 4,
+        "options": {
+          "infinitePan": false,
+          "inlineEditing": true,
+          "panZoom": false,
+          "root": {
+            "background": {
+              "color": {
+                "fixed": "transparent"
+              },
+              "image": {
+                "fixed": "img/bg/bob-ross-smiling-at-you.png",
+                "mode": "fixed"
+              },
+              "size": "fill"
+            },
+            "border": {
+              "color": {
+                "fixed": "dark-green"
+              }
+            },
+            "constraint": {
+              "horizontal": "left",
+              "vertical": "top"
+            },
+            "elements": [],
+            "name": "Element 1716544439812",
+            "placement": {
+              "height": 100,
+              "left": 0,
+              "rotation": 0,
+              "top": 0,
+              "width": 100
+            },
+            "type": "frame"
+          },
+          "showAdvancedTypes": true
+        },
+        "pluginVersion": "11.0.0",
+        "title": "Bob Ross",
+        "type": "canvas"
+      }
+    ],
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timeRangeUpdatedDuringEditOrView": false,
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "Playground",
+    "uid": "ddmntshqpo83kf",
+    "version": 3,
+    "weekStart": ""
+}
