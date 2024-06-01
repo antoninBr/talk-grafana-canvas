@@ -4527,6 +4527,8 @@ grafana.ini:
     root_url: http://localhost/
   live:
     max_connections: 0
+  panels:
+    disable_sanitize_html: "true"
 ## grafana Authentication can be enabled with the following values on grafana.ini
  # server:
       # The full public facing url you use in browser, used for redirects and emails
