@@ -3324,7 +3324,7 @@ dashboards:
                   }
                 ]
               },
-              "editable": false,
+              "editable": true,
               "fiscalYearStartMonth": 0,
               "graphTooltip": 0,
               "links": [],
@@ -3778,6 +3778,103 @@ dashboards:
                   "title": "Drawing Applications",
                   "transparent": true,
                   "type": "canvas"
+                },
+                {
+                  "datasource": {
+                    "type": "prometheus",
+                    "uid": "PBFA97CFB590B2093"
+                  },
+                  "fieldConfig": {
+                    "defaults": {
+                      "color": {
+                        "mode": "palette-classic"
+                      },
+                      "custom": {
+                        "axisBorderShow": false,
+                        "axisCenteredZero": false,
+                        "axisColorMode": "text",
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "barAlignment": 0,
+                        "drawStyle": "line",
+                        "fillOpacity": 0,
+                        "gradientMode": "none",
+                        "hideFrom": {
+                          "legend": false,
+                          "tooltip": false,
+                          "viz": false
+                        },
+                        "insertNulls": false,
+                        "lineInterpolation": "linear",
+                        "lineWidth": 1,
+                        "pointSize": 5,
+                        "scaleDistribution": {
+                          "type": "linear"
+                        },
+                        "showPoints": "auto",
+                        "spanNulls": false,
+                        "stacking": {
+                          "group": "A",
+                          "mode": "none"
+                        },
+                        "thresholdsStyle": {
+                          "mode": "off"
+                        }
+                      },
+                      "mappings": [],
+                      "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                          {
+                            "color": "transparent",
+                            "value": null
+                          }
+                        ]
+                      },
+                      "unit": "celsius"
+                    },
+                    "overrides": []
+                  },
+                  "gridPos": {
+                    "h": 9,
+                    "w": 24,
+                    "x": 0,
+                    "y": 10
+                  },
+                  "id": 2,
+                  "options": {
+                    "legend": {
+                      "calcs": [],
+                      "displayMode": "list",
+                      "placement": "bottom",
+                      "showLegend": true
+                    },
+                    "tooltip": {
+                      "maxHeight": 600,
+                      "mode": "single",
+                      "sort": "none"
+                    }
+                  },
+                  "targets": [
+                    {
+                      "datasource": {
+                        "type": "prometheus",
+                        "uid": "PBFA97CFB590B2093"
+                      },
+                      "disableTextWrap": false,
+                      "editorMode": "builder",
+                      "expr": "lake_temperature_celsius",
+                      "fullMetaSearch": false,
+                      "includeNullMetadata": true,
+                      "instant": false,
+                      "legendFormat": "__auto",
+                      "range": true,
+                      "refId": "lake-temperature",
+                      "useBackend": false
+                    }
+                  ],
+                  "title": "Lake Temperature",
+                  "type": "timeseries"
                 }
               ],
               "refresh": "auto",
@@ -3790,12 +3887,12 @@ dashboards:
                 "from": "now-6h",
                 "to": "now"
               },
-              "timeRangeUpdatedDuringEditOrView": true,
+              "timeRangeUpdatedDuringEditOrView": false,
               "timepicker": {},
               "timezone": "browser",
               "title": "Drawing",
               "uid": "adma37vjt0h6od",
-              "version": 1,
+              "version": 2,
               "weekStart": ""
           }
       beautiful-drawing:
@@ -4282,196 +4379,220 @@ dashboards:
       playground:
         json: |
           {
-              "annotations": {
-                "list": [
-                  {
-                    "builtIn": 1,
-                    "datasource": {
-                      "type": "grafana",
-                      "uid": "-- Grafana --"
-                    },
-                    "enable": true,
-                    "hide": true,
-                    "iconColor": "rgba(0, 211, 255, 1)",
-                    "name": "Annotations & Alerts",
-                    "type": "dashboard"
-                  }
-                ]
+            "annotations": {
+              "list": [
+                {
+                  "builtIn": 1,
+                  "datasource": {
+                    "type": "grafana",
+                    "uid": "-- Grafana --"
+                  },
+                  "enable": true,
+                  "hide": true,
+                  "iconColor": "rgba(0, 211, 255, 1)",
+                  "name": "Annotations & Alerts",
+                  "type": "dashboard"
+                }
+              ]
+            },
+            "editable": true,
+            "fiscalYearStartMonth": 0,
+            "graphTooltip": 0,
+            "links": [],
+            "panels": [
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "PBFA97CFB590B2093"
+                },
+                "gridPos": {
+                  "h": 10,
+                  "w": 14,
+                  "x": 0,
+                  "y": 0
+                },
+                "id": 1,
+                "options": {
+                  "code": {
+                    "language": "plaintext",
+                    "showLineNumbers": false,
+                    "showMiniMap": false
+                  },
+                  "content": "# Prerequisites\n\n* Kubectl\n* in directory ./demo/img/\n\n# Get pod id env variable\n\n`export grafana_pod_id=( kubectl get pod -n monitoring | grep 'grafana' | awk 'END {print $1}' | xargs echo)`\n\n\n# Copy custom background\n\n**Only png admitted**\n\n`kubectl cp -n monitoring openart-bob-ross-lake-cabin.png $grafana_pod_id:/usr/share/grafana/public/img/bg/openart-bob-ross-lake-cabin.png`\n\n",
+                  "mode": "markdown"
+                },
+                "pluginVersion": "11.0.0",
+                "title": "Custom Background",
+                "type": "text"
               },
-              "editable": true,
-              "fiscalYearStartMonth": 0,
-              "graphTooltip": 0,
-              "id": 4,
-              "links": [],
-              "panels": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "PBFA97CFB590B2093"
-                  },
-                  "gridPos": {
-                    "h": 10,
-                    "w": 14,
-                    "x": 0,
-                    "y": 0
-                  },
-                  "id": 1,
-                  "options": {
-                    "code": {
-                      "language": "plaintext",
-                      "showLineNumbers": false,
-                      "showMiniMap": false
-                    },
-                    "content": "# Prerequisites\n\n* Kubectl\n* in directory ./demo/img/\n\n# Get pod id env variable\n\n`export grafana_pod_id=( kubectl get pod -n monitoring | grep 'grafana' | awk 'END {print $1}' | xargs echo)`\n\n\n# Copy custom background\n\n**Only png admitted**\n\n`kubectl cp -n monitoring openart-bob-ross-lake-cabin.png $grafana_pod_id:/usr/share/grafana/public/img/bg/openart-bob-ross-lake-cabin.png`\n\n",
-                    "mode": "markdown"
-                  },
-                  "pluginVersion": "11.0.0",
-                  "title": "Custom Background",
-                  "type": "text"
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "PBFA97CFB590B2093"
                 },
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "PBFA97CFB590B2093"
-                  },
-                  "gridPos": {
-                    "h": 10,
-                    "w": 10,
-                    "x": 14,
-                    "y": 0
-                  },
-                  "id": 3,
-                  "options": {
-                    "code": {
-                      "language": "plaintext",
-                      "showLineNumbers": false,
-                      "showMiniMap": false
-                    },
-                    "content": "# Prerequisites\n\n* Grafana source code\n* SVG Layering skills\n* React dev skills\n* A loooot of time\n\n# It's hard\n\nFollow this blog post: [blog post](https://volkovlabs.io/blog/pizzeria-canvas-20230723/)",
-                    "mode": "markdown"
-                  },
-                  "pluginVersion": "11.0.0",
-                  "title": "Custom Elements",
-                  "type": "text"
+                "gridPos": {
+                  "h": 10,
+                  "w": 10,
+                  "x": 14,
+                  "y": 0
                 },
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "PBFA97CFB590B2093"
+                "id": 3,
+                "options": {
+                  "code": {
+                    "language": "plaintext",
+                    "showLineNumbers": false,
+                    "showMiniMap": false
                   },
-                  "gridPos": {
-                    "h": 10,
-                    "w": 17,
-                    "x": 0,
-                    "y": 10
-                  },
-                  "id": 2,
-                  "options": {
-                    "code": {
-                      "language": "plaintext",
-                      "showLineNumbers": false,
-                      "showMiniMap": false
-                    },
-                    "content": "# Prerequisites\n\n* Kubectl\n* in directory ./demo/img/\n\n# Get pod id env variable\n\n`export grafana_pod_id=( kubectl get pod -n monitoring | grep 'grafana' | awk 'END {print $1}' | xargs echo)`\n\n\n# Copy custom icons\n\n`kubectl cp -n monitoring ./kube/api.svg $grafana_pod_id:/usr/share/grafana/public/img/icons/unicons/`",
-                    "mode": "markdown"
-                  },
-                  "pluginVersion": "11.0.0",
-                  "title": "Custom Icons",
-                  "type": "text"
+                  "content": "# Prerequisites\n\n* Grafana source code\n* SVG Layering skills\n* React dev skills\n* A loooot of time\n\n# It's hard\n\nFollow this blog post: [blog post](https://volkovlabs.io/blog/pizzeria-canvas-20230723/)",
+                  "mode": "markdown"
                 },
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "PBFA97CFB590B2093"
+                "pluginVersion": "11.0.0",
+                "title": "Custom Elements",
+                "type": "text"
+              },
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "PBFA97CFB590B2093"
+                },
+                "gridPos": {
+                  "h": 10,
+                  "w": 17,
+                  "x": 0,
+                  "y": 10
+                },
+                "id": 2,
+                "options": {
+                  "code": {
+                    "language": "plaintext",
+                    "showLineNumbers": false,
+                    "showMiniMap": false
                   },
-                  "description": "",
-                  "fieldConfig": {
-                    "defaults": {
+                  "content": "# Prerequisites\n\n* Kubectl\n* in directory ./demo/img/\n\n# Get pod id env variable\n\n`export grafana_pod_id=( kubectl get pod -n monitoring | grep 'grafana' | awk 'END {print $1}' | xargs echo)`\n\n\n# Copy custom icons\n\n`kubectl cp -n monitoring ./kube/api.svg $grafana_pod_id:/usr/share/grafana/public/img/icons/unicons/`",
+                  "mode": "markdown"
+                },
+                "pluginVersion": "11.0.0",
+                "title": "Custom Icons",
+                "type": "text"
+              },
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "PBFA97CFB590B2093"
+                },
+                "description": "",
+                "fieldConfig": {
+                  "defaults": {
+                    "color": {
+                      "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "green",
+                          "value": null
+                        },
+                        {
+                          "color": "red",
+                          "value": 80
+                        }
+                      ]
+                    }
+                  },
+                  "overrides": []
+                },
+                "gridPos": {
+                  "h": 10,
+                  "w": 7,
+                  "x": 17,
+                  "y": 10
+                },
+                "id": 4,
+                "options": {
+                  "infinitePan": false,
+                  "inlineEditing": true,
+                  "panZoom": false,
+                  "root": {
+                    "background": {
                       "color": {
-                        "mode": "thresholds"
+                        "fixed": "transparent"
                       },
-                      "mappings": [],
-                      "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                          {
-                            "color": "green",
-                            "value": null
-                          },
-                          {
-                            "color": "red",
-                            "value": 80
-                          }
-                        ]
+                      "image": {
+                        "fixed": "img/bg/bob-ross-smiling-at-you.png",
+                        "mode": "fixed"
+                      },
+                      "size": "fill"
+                    },
+                    "border": {
+                      "color": {
+                        "fixed": "dark-green"
                       }
                     },
-                    "overrides": []
-                  },
-                  "gridPos": {
-                    "h": 10,
-                    "w": 7,
-                    "x": 17,
-                    "y": 10
-                  },
-                  "id": 4,
-                  "options": {
-                    "infinitePan": false,
-                    "inlineEditing": true,
-                    "panZoom": false,
-                    "root": {
-                      "background": {
-                        "color": {
-                          "fixed": "transparent"
-                        },
-                        "image": {
-                          "fixed": "img/bg/bob-ross-smiling-at-you.png",
-                          "mode": "fixed"
-                        },
-                        "size": "fill"
-                      },
-                      "border": {
-                        "color": {
-                          "fixed": "dark-green"
-                        }
-                      },
-                      "constraint": {
-                        "horizontal": "left",
-                        "vertical": "top"
-                      },
-                      "elements": [],
-                      "name": "Element 1716544439812",
-                      "placement": {
-                        "height": 100,
-                        "left": 0,
-                        "rotation": 0,
-                        "top": 0,
-                        "width": 100
-                      },
-                      "type": "frame"
+                    "constraint": {
+                      "horizontal": "left",
+                      "vertical": "top"
                     },
-                    "showAdvancedTypes": true
+                    "elements": [],
+                    "name": "Element 1716544439812",
+                    "placement": {
+                      "height": 100,
+                      "left": 0,
+                      "rotation": 0,
+                      "top": 0,
+                      "width": 100
+                    },
+                    "type": "frame"
                   },
-                  "pluginVersion": "11.0.0",
-                  "title": "Bob Ross",
-                  "type": "canvas"
-                }
-              ],
-              "schemaVersion": 39,
-              "tags": [],
-              "templating": {
-                "list": []
+                  "showAdvancedTypes": true
+                },
+                "pluginVersion": "11.0.0",
+                "title": "Bob Ross",
+                "type": "canvas"
               },
-              "time": {
-                "from": "now-6h",
-                "to": "now"
-              },
-              "timeRangeUpdatedDuringEditOrView": false,
-              "timepicker": {},
-              "timezone": "browser",
-              "title": "Playground",
-              "uid": "ddmntshqpo83kf",
-              "version": 3,
-              "weekStart": ""
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "PBFA97CFB590B2093"
+                },
+                "gridPos": {
+                  "h": 6,
+                  "w": 24,
+                  "x": 0,
+                  "y": 20
+                },
+                "id": 5,
+                "options": {
+                  "code": {
+                    "language": "plaintext",
+                    "showLineNumbers": false,
+                    "showMiniMap": false
+                  },
+                  "content": "<!DOCTYPE html>\n<html>\n  <body>\n    <div>\n    <input type=\"checkbox\" id=\"forms\" name=\"forms\" />\n    <label for=\"forms\">Forms</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"arrows\" name=\"arrows\" />\n    <label for=\"arrows\">Arrows</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"bg\" name=\"bg\" />\n    <label for=\"bg\">Background</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"icons\" name=\"icons\" />\n    <label for=\"icons\">Icons</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"metrics\" name=\"metrics\" />\n    <label for=\"metrics\">Metrics</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"elements\" name=\"elements\" />\n    <label for=\"elements\">Elements</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"buttons\" name=\"buttons\" />\n    <label for=\"buttons\">Buttons</label>\n  </div>    \n  </body>\n</html>\n",
+                  "mode": "html"
+                },
+                "pluginVersion": "11.0.0",
+                "title": "Demo Highlights",
+                "type": "text"
+              }
+            ],
+            "schemaVersion": 39,
+            "tags": [],
+            "templating": {
+              "list": []
+            },
+            "time": {
+              "from": "now-6h",
+              "to": "now"
+            },
+            "timeRangeUpdatedDuringEditOrView": false,
+            "timepicker": {},
+            "timezone": "browser",
+            "title": "Playground",
+            "uid": "ddmntshqpo83kf",
+            "version": 1,
+            "weekStart": ""
           }
   #   prometheus-stats:
   #     gnetId: 2
