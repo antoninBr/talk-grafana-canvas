@@ -17,6 +17,10 @@
 `kubectl cp -n monitoring bob_ross.svg $grafana_pod_id:/usr/share/grafana/public/img/icons/unicons/`
 
 `kubectl cp -n monitoring ./kube/api.svg $grafana_pod_id:/usr/share/grafana/public/img/icons/unicons/`
+`kubectl cp -n monitoring ./kube/c-m.svg $grafana_pod_id:/usr/share/grafana/public/img/icons/unicons/`
+`kubectl cp -n monitoring ./kube/kubelet.svg $grafana_pod_id:/usr/share/grafana/public/img/icons/unicons/`
+`kubectl cp -n monitoring ./kube/sched.svg $grafana_pod_id:/usr/share/grafana/public/img/icons/unicons/`
+`kubectl cp -n monitoring ./kube/k-proxy.svg $grafana_pod_id:/usr/share/grafana/public/img/icons/unicons/`
 
 
 # blog
