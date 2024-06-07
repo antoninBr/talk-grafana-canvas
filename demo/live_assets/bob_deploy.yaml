@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bob-app
+  namespace: studio  
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: bob-app
+  template:
+    metadata:
+      labels:
+        app: bob-app
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/path: '/metrics'
+        prometheus.io/port: '8000'         
+    spec:
+      containers:
+      - name: bob-app
+        image: bob-app:v1
+        ports:
+        - containerPort: 8000 # Port pour les métriques Prometheus
+        - containerPort: 5000 # Port pour l'API Flask
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "125m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

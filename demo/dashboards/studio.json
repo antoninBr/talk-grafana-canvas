@@ -1,0 +1,510 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 5,
+    "links": [],
+    "panels": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 50
+                },
+                {
+                  "color": "red",
+                  "value": 100
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 14,
+          "w": 14,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "infinitePan": false,
+          "inlineEditing": true,
+          "panZoom": false,
+          "root": {
+            "background": {
+              "color": {
+                "fixed": "transparent"
+              }
+            },
+            "border": {
+              "color": {
+                "fixed": "dark-green"
+              }
+            },
+            "constraint": {
+              "horizontal": "left",
+              "vertical": "top"
+            },
+            "elements": [
+              {
+                "background": {
+                  "color": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.6:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-c7f78\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "size": 20,
+                  "text": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.6:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-c7f78\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "bob-ross-1",
+                "placement": {
+                  "height": 50,
+                  "left": 353,
+                  "top": 218,
+                  "width": 80
+                },
+                "type": "metric-value"
+              },
+              {
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "fill": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.6:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-c7f78\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "#D9D9D9"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/bob_ross.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "bob-ross-1-icon",
+                "placement": {
+                  "height": 98,
+                  "left": 362,
+                  "top": 120,
+                  "width": 62
+                },
+                "type": "icon"
+              },
+              {
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "blinkRate": {
+                    "fixed": 10
+                  },
+                  "bulbColor": {
+                    "fixed": "blue"
+                  },
+                  "statusColor": {
+                    "fixed": "transparent"
+                  },
+                  "type": "Stack"
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "stack",
+                "placement": {
+                  "height": 100,
+                  "left": 59,
+                  "top": 209,
+                  "width": 100
+                },
+                "type": "server"
+              },
+              {
+                "background": {
+                  "color": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.22:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-5tnrk\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "size": 20,
+                  "text": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.22:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-5tnrk\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "bob-ross-2",
+                "placement": {
+                  "height": 50,
+                  "left": 452,
+                  "top": 218,
+                  "width": 80
+                },
+                "type": "metric-value"
+              },
+              {
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "fill": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.22:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-5tnrk\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "#D9D9D9"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/bob_ross.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "bob-ross-2-icon",
+                "placement": {
+                  "height": 98,
+                  "left": 461,
+                  "top": 120,
+                  "width": 62
+                },
+                "type": "icon"
+              },
+              {
+                "background": {
+                  "color": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.8:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-6vqt2\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "size": 20,
+                  "text": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.8:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-6vqt2\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "bob-ross-3",
+                "placement": {
+                  "height": 50,
+                  "left": 560,
+                  "top": 218,
+                  "width": 80
+                },
+                "type": "metric-value"
+              },
+              {
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "fill": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.8:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-6vqt2\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "#D9D9D9"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/bob_ross.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "bob-ross-3-icon",
+                "placement": {
+                  "height": 98,
+                  "left": 569,
+                  "top": 120,
+                  "width": 62
+                },
+                "type": "icon"
+              },
+              {
+                "background": {
+                  "color": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.9:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-g6rtc\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "align": "center",
+                  "color": {
+                    "fixed": "text"
+                  },
+                  "size": 20,
+                  "text": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.9:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-g6rtc\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "bob-ross-4",
+                "placement": {
+                  "height": 50,
+                  "left": 659,
+                  "top": 218,
+                  "width": 80
+                },
+                "type": "metric-value"
+              },
+              {
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "border": {
+                  "color": {
+                    "fixed": "dark-green"
+                  }
+                },
+                "config": {
+                  "fill": {
+                    "field": "{__name__=\"drawings_total\", app=\"bob-app\", instance=\"10.244.0.9:8000\", job=\"kubernetes-pods\", namespace=\"studio\", node=\"kind-cluster-control-plane\", pod=\"bob-app-86f56dc94d-g6rtc\", pod_template_hash=\"86f56dc94d\"}",
+                    "fixed": "#D9D9D9"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/bob_ross.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "constraint": {
+                  "horizontal": "left",
+                  "vertical": "top"
+                },
+                "name": "bob-ross-4-icon",
+                "placement": {
+                  "height": 98,
+                  "left": 668,
+                  "top": 120,
+                  "width": 62
+                },
+                "type": "icon"
+              }
+            ],
+            "name": "Element 1717759361786",
+            "placement": {
+              "height": 100,
+              "left": 0,
+              "rotation": 0,
+              "top": 0,
+              "width": 100
+            },
+            "type": "frame"
+          },
+          "showAdvancedTypes": true
+        },
+        "pluginVersion": "11.0.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "drawings_total{instance=\"10.244.0.6:8000\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "bob1",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "drawings_total{instance=\"10.244.0.22:8000\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "bob2",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "drawings_total{instance=\"10.244.0.8:8000\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "bob3",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "drawings_total{instance=\"10.244.0.9:8000\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "bob4",
+            "useBackend": false
+          }
+        ],
+        "title": "Studio",
+        "type": "canvas"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timeRangeUpdatedDuringEditOrView": false,
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "Studio",
+    "uid": "bdo24f9giguf4e",
+    "version": 7,
+    "weekStart": ""
+}
