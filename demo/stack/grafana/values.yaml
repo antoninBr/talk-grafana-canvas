@@ -4714,7 +4714,7 @@ dashboards:
                   "uid": "PBFA97CFB590B2093"
                 },
                 "gridPos": {
-                  "h": 6,
+                  "h": 8,
                   "w": 24,
                   "x": 0,
                   "y": 20
@@ -4726,12 +4726,499 @@ dashboards:
                     "showLineNumbers": false,
                     "showMiniMap": false
                   },
-                  "content": "<!DOCTYPE html>\n<html>\n  <body>\n  <body>\n  <div>\n    <time id=\"timer\">0:00:00.00</time>\n\t</div>\n\t<div>\n    <button id=\"toggle\">start</button>\n    <button id=\"clear\">clear</button>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"forms\" name=\"forms\" />\n    <label for=\"forms\">Forms</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"arrows\" name=\"arrows\" />\n    <label for=\"arrows\">Arrows</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"bg\" name=\"bg\" />\n    <label for=\"bg\">Background</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"icons\" name=\"icons\" />\n    <label for=\"icons\">Icons</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"metrics\" name=\"metrics\" />\n    <label for=\"metrics\">Metrics</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"elements\" name=\"elements\" />\n    <label for=\"elements\">Elements</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"buttons\" name=\"buttons\" />\n    <label for=\"buttons\">Buttons</label>\n  </div>    \n  </body>\n  <script>\n(function timer() {\n\t'use strict';\n\n\t//declare\n\tvar output = document.getElementById('timer');\n\tvar toggle = document.getElementById('toggle');\n\tvar clear = document.getElementById('clear');\n\tvar running = false;\n\tvar paused = false;\n\tvar timer;\n\t\n\t// timer start time\n\tvar then;\n\t// pause duration\n\tvar delay;\n\t// pause start time\n\tvar delayThen;\n\n\t\n\t// start timer\n\tvar start = function() {\n\t\tdelay = 0;\n\t\trunning = true;\n\t\tthen = Date.now();\n\t\ttimer = setInterval(run,51);\n\t\ttoggle.innerHTML = 'stop';\n\t};\n\t\n\t\n\t// parse time in ms for output\n\tvar parseTime = function(elapsed) {\n\t\t// array of time multiples [hours, min, sec, decimal]\n\t\tvar d = [3600000,60000,1000,10];\n\t\tvar time = [];\n\t\tvar i = 0;\n\n\t\twhile (i < d.length) {\n\t\t\tvar t = Math.floor(elapsed/d[i]);\n\n\t\t\t// remove parsed time for next iteration\n\t\t\telapsed -= t*d[i];\n\n\t\t\t// add '0' prefix to m,s,d when needed\n\t\t\tt = (i > 0 && t < 10) ? '0' + t : t;\n\t\t\ttime.push(t);\n\t\t\ti++;\n\t\t}\n\t\t\n\t\treturn time;\n\t};\n\t\n\t\n\t// run\n\tvar run = function() {\n\t\t// get output array and print\n\t\tvar time = parseTime(Date.now()-then-delay);\n\t\toutput.innerHTML = time[0] + ':' + time[1] + ':' + time[2] + '.' + time[3];\n\t};\n\t\n\t\n\t// stop\n\tvar stop = function() {\n\t\tpaused = true;\n\t\tdelayThen = Date.now();\n\t\ttoggle.innerHTML = 'resume';\n\t\tclear.dataset.state = 'visible';\n\t\tclearInterval(timer);\n\n\t\t// call one last time to print exact time\n\t\trun();\n\t};\n\t\n\t\n\t// resume\n\tvar resume = function() {\n\t\tpaused = false;\n\t\tdelay += Date.now()-delayThen;\n\t\ttimer = setInterval(run,51);\n\t\ttoggle.innerHTML = 'stop';\n\t\tclear.dataset.state = '';\n\t};\n\t\n\t\n\t// clear\n\tvar reset = function() {\n\t\trunning = false;\n\t\tpaused = false;\n\t\ttoggle.innerHTML = 'start';\n\t\toutput.innerHTML = '0:00:00.00';\n\t\tclear.dataset.state = '';\n\t};\n\t\n\t\n\t// evaluate and route\n\tvar router = function() {\n\t\tif (!running) start();\n\t\telse if (paused) resume();\n\t\telse stop();\n\t};\n\t\n\ttoggle.addEventListener('click',router);\n\tclear.addEventListener('click',reset);\n\t\n})();\n\n  </script>\n</html>\n",
+                  "content": "<!DOCTYPE html>\n<html>\n  <body>\n  <body>\n  <div>\n    <time id=\"timer\">0:00:00.00</time>\n\t</div>\n\t<div>\n    <button id=\"toggle\">start</button>\n    <button id=\"clear\">clear</button>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"forms\" name=\"forms\" />\n    <label for=\"forms\">Forms</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"arrows\" name=\"arrows\" />\n    <label for=\"arrows\">Arrows</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"bg\" name=\"bg\" />\n    <label for=\"bg\">Background</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"icons\" name=\"icons\" />\n    <label for=\"icons\">Icons</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"metrics\" name=\"metrics\" />\n    <label for=\"metrics\">Metrics</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"elements\" name=\"elements\" />\n    <label for=\"elements\">Elements</label>\n  </div>\n  <div>\n    <input type=\"checkbox\" id=\"buttons\" name=\"buttons\" />\n    <label for=\"buttons\">Buttons</label>\n  </div>\n\t  <div>\n    <input type=\"checkbox\" id=\"thresholds\" name=\"thresholds\" />\n    <label for=\"buttons\">Thresholds</label>\n  </div> \n  </body>\n  <script>\n(function timer() {\n\t'use strict';\n\n\t//declare\n\tvar output = document.getElementById('timer');\n\tvar toggle = document.getElementById('toggle');\n\tvar clear = document.getElementById('clear');\n\tvar running = false;\n\tvar paused = false;\n\tvar timer;\n\t\n\t// timer start time\n\tvar then;\n\t// pause duration\n\tvar delay;\n\t// pause start time\n\tvar delayThen;\n\n\t\n\t// start timer\n\tvar start = function() {\n\t\tdelay = 0;\n\t\trunning = true;\n\t\tthen = Date.now();\n\t\ttimer = setInterval(run,51);\n\t\ttoggle.innerHTML = 'stop';\n\t};\n\t\n\t\n\t// parse time in ms for output\n\tvar parseTime = function(elapsed) {\n\t\t// array of time multiples [hours, min, sec, decimal]\n\t\tvar d = [3600000,60000,1000,10];\n\t\tvar time = [];\n\t\tvar i = 0;\n\n\t\twhile (i < d.length) {\n\t\t\tvar t = Math.floor(elapsed/d[i]);\n\n\t\t\t// remove parsed time for next iteration\n\t\t\telapsed -= t*d[i];\n\n\t\t\t// add '0' prefix to m,s,d when needed\n\t\t\tt = (i > 0 && t < 10) ? '0' + t : t;\n\t\t\ttime.push(t);\n\t\t\ti++;\n\t\t}\n\t\t\n\t\treturn time;\n\t};\n\t\n\t\n\t// run\n\tvar run = function() {\n\t\t// get output array and print\n\t\tvar time = parseTime(Date.now()-then-delay);\n\t\toutput.innerHTML = time[0] + ':' + time[1] + ':' + time[2] + '.' + time[3];\n\t};\n\t\n\t\n\t// stop\n\tvar stop = function() {\n\t\tpaused = true;\n\t\tdelayThen = Date.now();\n\t\ttoggle.innerHTML = 'resume';\n\t\tclear.dataset.state = 'visible';\n\t\tclearInterval(timer);\n\n\t\t// call one last time to print exact time\n\t\trun();\n\t};\n\t\n\t\n\t// resume\n\tvar resume = function() {\n\t\tpaused = false;\n\t\tdelay += Date.now()-delayThen;\n\t\ttimer = setInterval(run,51);\n\t\ttoggle.innerHTML = 'stop';\n\t\tclear.dataset.state = '';\n\t};\n\t\n\t\n\t// clear\n\tvar reset = function() {\n\t\trunning = false;\n\t\tpaused = false;\n\t\ttoggle.innerHTML = 'start';\n\t\toutput.innerHTML = '0:00:00.00';\n\t\tclear.dataset.state = '';\n\t};\n\t\n\t\n\t// evaluate and route\n\tvar router = function() {\n\t\tif (!running) start();\n\t\telse if (paused) resume();\n\t\telse stop();\n\t};\n\t\n\ttoggle.addEventListener('click',router);\n\tclear.addEventListener('click',reset);\n\t\n})();\n\n  </script>\n</html>\n",
                   "mode": "html"
                 },
                 "pluginVersion": "11.0.0",
                 "title": "Demo Highlights",
                 "type": "text"
+              },
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "PBFA97CFB590B2093"
+                },
+                "fieldConfig": {
+                  "defaults": {
+                    "color": {
+                      "mode": "thresholds"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "green",
+                          "value": null
+                        },
+                        {
+                          "color": "red",
+                          "value": 80
+                        }
+                      ]
+                    }
+                  },
+                  "overrides": []
+                },
+                "gridPos": {
+                  "h": 9,
+                  "w": 24,
+                  "x": 0,
+                  "y": 28
+                },
+                "id": 6,
+                "options": {
+                  "infinitePan": false,
+                  "inlineEditing": true,
+                  "panZoom": false,
+                  "root": {
+                    "background": {
+                      "color": {
+                        "fixed": "transparent"
+                      }
+                    },
+                    "border": {
+                      "color": {
+                        "fixed": "dark-green"
+                      }
+                    },
+                    "elements": [
+                      {
+                        "background": {
+                          "color": {
+                            "field": "etcd_bookmark_counts",
+                            "fixed": "#D9D9D9"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "align": "center",
+                          "color": {
+                            "fixed": "#000000"
+                          },
+                          "size": 20,
+                          "text": {
+                            "field": "etcd_bookmark_counts",
+                            "fixed": "",
+                            "mode": "field"
+                          },
+                          "valign": "middle"
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 1",
+                        "placement": {
+                          "height": 60,
+                          "left": 42,
+                          "top": 56,
+                          "width": 246
+                        },
+                        "type": "metric-value"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "transparent"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "align": "center",
+                          "color": {
+                            "fixed": "rgb(204, 204, 220)"
+                          },
+                          "size": 16,
+                          "text": {
+                            "fixed": "Une métrique"
+                          },
+                          "valign": "middle"
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 2",
+                        "placement": {
+                          "height": 50,
+                          "left": 36,
+                          "top": 6,
+                          "width": 162
+                        },
+                        "type": "text"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "transparent"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "align": "center",
+                          "color": {
+                            "fixed": "rgb(204, 204, 220)"
+                          },
+                          "size": 16,
+                          "text": {
+                            "fixed": "Formes"
+                          },
+                          "valign": "middle"
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 3",
+                        "placement": {
+                          "height": 50,
+                          "left": 413,
+                          "top": 6,
+                          "width": 100
+                        },
+                        "type": "text"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "#D9D9D9"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "align": "center",
+                          "color": {
+                            "fixed": "#000000"
+                          },
+                          "valign": "middle"
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 4",
+                        "placement": {
+                          "height": 85,
+                          "left": 403,
+                          "top": 65,
+                          "width": 87
+                        },
+                        "type": "ellipse"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "#D9D9D9"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "align": "center",
+                          "color": {
+                            "fixed": "#000000"
+                          },
+                          "valign": "middle"
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 5",
+                        "placement": {
+                          "height": 68,
+                          "left": 513,
+                          "top": 73,
+                          "width": 109
+                        },
+                        "type": "rectangle"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "#D9D9D9"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "align": "center",
+                          "color": {
+                            "fixed": "#000000"
+                          },
+                          "valign": "middle"
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 6",
+                        "placement": {
+                          "height": 62,
+                          "left": 656,
+                          "top": 73,
+                          "width": 119
+                        },
+                        "type": "parallelogram"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "transparent"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "align": "center",
+                          "color": {
+                            "fixed": "rgb(204, 204, 220)"
+                          },
+                          "size": 16,
+                          "text": {
+                            "fixed": "Icones"
+                          },
+                          "valign": "middle"
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 7",
+                        "placement": {
+                          "height": 50,
+                          "left": 867,
+                          "top": 15,
+                          "width": 100
+                        },
+                        "type": "text"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "transparent"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "fill": {
+                            "fixed": "#D9D9D9"
+                          },
+                          "path": {
+                            "fixed": "img/icons/unicons/question-circle.svg",
+                            "mode": "fixed"
+                          }
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 8",
+                        "placement": {
+                          "height": 61,
+                          "left": 899,
+                          "top": 73,
+                          "width": 68
+                        },
+                        "type": "icon"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "transparent"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "align": "center",
+                          "color": {
+                            "fixed": "rgb(204, 204, 220)"
+                          },
+                          "size": 16,
+                          "text": {
+                            "fixed": "Elements"
+                          },
+                          "valign": "middle"
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 9",
+                        "placement": {
+                          "height": 50,
+                          "left": 49,
+                          "top": 150,
+                          "width": 100
+                        },
+                        "type": "text"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "transparent"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "blinkRate": {
+                            "fixed": 1
+                          },
+                          "type": "Single"
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 10",
+                        "placement": {
+                          "height": 56,
+                          "left": 68,
+                          "top": 207,
+                          "width": 62
+                        },
+                        "type": "server"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "transparent"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "align": "center",
+                          "api": {
+                            "contentType": "application/json",
+                            "data": "{}",
+                            "endpoint": "",
+                            "headerParams": [],
+                            "method": "POST",
+                            "queryParams": []
+                          },
+                          "color": {
+                            "fixed": "#F0F4FD"
+                          },
+                          "size": 14,
+                          "style": {
+                            "variant": "primary"
+                          },
+                          "text": {
+                            "fixed": "Un bouton",
+                            "mode": "fixed"
+                          }
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 11",
+                        "placement": {
+                          "height": 45,
+                          "left": 413,
+                          "top": 218,
+                          "width": 150
+                        },
+                        "type": "button"
+                      },
+                      {
+                        "background": {
+                          "color": {
+                            "fixed": "transparent"
+                          }
+                        },
+                        "border": {
+                          "color": {
+                            "fixed": "dark-green"
+                          }
+                        },
+                        "config": {
+                          "rpm": {
+                            "fixed": 10
+                          }
+                        },
+                        "constraint": {
+                          "horizontal": "left",
+                          "vertical": "top"
+                        },
+                        "name": "Element 12",
+                        "placement": {
+                          "height": 119,
+                          "left": 165,
+                          "top": 181,
+                          "width": 62
+                        },
+                        "type": "windTurbine"
+                      }
+                    ],
+                    "name": "Element 1718088411744",
+                    "type": "frame"
+                  },
+                  "showAdvancedTypes": true
+                },
+                "pluginVersion": "11.0.0",
+                "targets": [
+                  {
+                    "datasource": {
+                      "type": "prometheus",
+                      "uid": "PBFA97CFB590B2093"
+                    },
+                    "disableTextWrap": false,
+                    "editorMode": "builder",
+                    "expr": "etcd_bookmark_counts",
+                    "fullMetaSearch": false,
+                    "includeNullMetadata": true,
+                    "instant": false,
+                    "legendFormat": "__auto",
+                    "range": true,
+                    "refId": "etcd_bookmarks",
+                    "useBackend": false
+                  }
+                ],
+                "title": "Canvas Playground",
+                "type": "canvas"
               }
             ],
             "schemaVersion": 39,
@@ -4748,7 +5235,7 @@ dashboards:
             "timezone": "browser",
             "title": "Playground",
             "uid": "ddmntshqpo83kf",
-            "version": 1,
+            "version": 2,
             "weekStart": ""
           }
       studio:
