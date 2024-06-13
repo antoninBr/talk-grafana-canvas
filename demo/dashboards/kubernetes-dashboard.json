@@ -44,8 +44,16 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
+                "color": "dark-red",
                 "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.9
+              },
+              {
+                "color": "green",
+                "value": 1
               }
             ]
           }
@@ -238,8 +246,7 @@
             {
               "background": {
                 "color": {
-                  "field": "etcd_bookmark_counts",
-                  "fixed": "#D9D9D9"
+                  "fixed": "transparent"
                 }
               },
               "border": {
@@ -249,45 +256,8 @@
               },
               "config": {
                 "align": "center",
-                "color": {
-                  "fixed": "text"
-                },
-                "size": 20,
-                "text": {
-                  "field": "etcd_bookmark_counts",
-                  "fixed": "",
-                  "mode": "field"
-                },
-                "valign": "middle"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Element 7",
-              "placement": {
-                "height": 38,
-                "left": 259,
-                "top": 278,
-                "width": 65
-              },
-              "type": "metric-value"
-            },
-            {
-              "background": {
                 "color": {
                   "field": "sum(irate(apiserver_request_total{code=~\"20.*\",verb=~\"GET|LIST\"}[5m]))/sum(irate(apiserver_request_total{verb=~\"GET|LIST\"}[5m]))",
-                  "fixed": "#D9D9D9"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
                   "fixed": "text"
                 },
                 "size": 20,
@@ -314,8 +284,7 @@
             {
               "background": {
                 "color": {
-                  "field": "sum(irate(apiserver_request_total{code=~\"20.*\",verb!~\"GET|LIST|WATCH|CONNECT\"}[5m]))/sum(irate(apiserver_request_total{verb!~\"GET|LIST|WATCH|CONNECT\"}[5m]))",
-                  "fixed": "#D9D9D9"
+                  "fixed": "transparent"
                 }
               },
               "border": {
@@ -326,6 +295,7 @@
               "config": {
                 "align": "center",
                 "color": {
+                  "field": "sum(irate(apiserver_request_total{code=~\"20.*\",verb!~\"GET|LIST|WATCH|CONNECT\"}[5m]))/sum(irate(apiserver_request_total{verb!~\"GET|LIST|WATCH|CONNECT\"}[5m]))",
                   "fixed": "text"
                 },
                 "size": 20,
@@ -418,44 +388,6 @@
                 "width": 62
               },
               "type": "text"
-            },
-            {
-              "background": {
-                "color": {
-                  "field": "kubelet_active_pods",
-                  "fixed": "#D9D9D9"
-                }
-              },
-              "border": {
-                "color": {
-                  "fixed": "dark-green"
-                }
-              },
-              "config": {
-                "align": "center",
-                "color": {
-                  "fixed": "text"
-                },
-                "size": 20,
-                "text": {
-                  "field": "kubelet_active_pods",
-                  "fixed": "",
-                  "mode": "field"
-                },
-                "valign": "middle"
-              },
-              "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
-              },
-              "name": "Element 12",
-              "placement": {
-                "height": 50,
-                "left": 896,
-                "top": 137,
-                "width": 70
-              },
-              "type": "metric-value"
             },
             {
               "background": {
@@ -746,7 +678,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
+          "editorMode": "code",
           "expr": "sum(irate(apiserver_request_total{code=~\"20.*\",verb=~\"GET|LIST\"}[5m]))/sum(irate(apiserver_request_total{verb=~\"GET|LIST\"}[5m]))",
           "hide": false,
           "instant": false,
@@ -1681,7 +1613,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1782,7 +1715,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1882,7 +1816,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1978,7 +1913,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2074,7 +2010,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2175,7 +2112,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
